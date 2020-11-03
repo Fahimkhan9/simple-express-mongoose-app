@@ -6,11 +6,11 @@
     <title><%= title %></title>
   </head>
   <body>
-    <form>
-      <input type="text" />
-      <input type="text" />
-      <input type="text" />
-      <input type="text" />
+    <form action="/blogs" method="POST">
+      <input type="text" name="title" placeholder="title" required />
+      <input type="text" name="body" placeholder="body" required />
+
+      <input type="submit" value="create" />
     </form>
   </body>
 </html>
