@@ -1,4 +1,5 @@
 const Blog = require("../models/blogs");
+
 const blog_create = (req, res) => {
   const blog = new Blog(req.body);
 
@@ -8,6 +9,6 @@ const blog_create = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-module.exports({
+module.exports = {
   blog_create,
-});
+};
