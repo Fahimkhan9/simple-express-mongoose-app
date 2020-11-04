@@ -2,15 +2,14 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
+require("dotenv").config({ path: "./config/.env" });
 const app = express();
 const port = 5000;
 
 app.set("view engine", "ejs");
 
-app.use(express.urlencoded({ extended: true }));
-
 //connect to db
-const dbURI = `mongodb+srv://fahimalif:fahimkhan@cluster0.vigvf.mongodb.net/learnmongo?retryWrites=true&w=majority`;
+const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vigvf.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
